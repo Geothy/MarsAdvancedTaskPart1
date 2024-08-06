@@ -8,7 +8,7 @@
     "ChooseLanguageLevel": "Basic"
   },
   {
-    "AddLanguage": "Malayalam",
+    "AddLanguage": "C++",
     "ChooseLanguageLevel": "Fluent"
   },
   {
@@ -16,8 +16,7 @@
     "ChooseLanguageLevel": "Choose Language Level"
   },
   {
-    "AddLanguage": "Malayalam",
-    "ChooseLanguageLevel": "Conversational"
+    "AddLanguage": "C#",
+    "ChooseLanguageLevel": "Basic"
   }
-
 ]

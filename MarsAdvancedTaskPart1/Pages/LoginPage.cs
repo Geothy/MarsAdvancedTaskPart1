@@ -23,7 +23,6 @@ namespace MarsAdvancedTaskPart1.Pages
             signInButton.Click();
             string loginFile = "LoginData.json";
             List<LoginModel> LoginData = JsonUtil.ReadJsonData<LoginModel>(loginFile);
-
             foreach (var item in LoginData)
             {
                 string email = item.Email;
@@ -33,10 +32,7 @@ namespace MarsAdvancedTaskPart1.Pages
                 logInButton.Click();
                 Thread.Sleep(1000);
                 VerifyLoggedInUser();
-
             }
-
-
         }
         public void VerifyLoggedInUser()
         {
