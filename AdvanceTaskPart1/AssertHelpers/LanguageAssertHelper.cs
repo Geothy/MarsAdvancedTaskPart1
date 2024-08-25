@@ -1,19 +1,11 @@
 ﻿using AdvanceTaskPart1.Utils;
-using NUnit.Framework.Internal;
-using NUnit.Framework;
 using AventStack.ExtentReports;
+using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RazorEngine.Compilation.ImpromptuInterface;
-using System.Runtime.Intrinsics.X86;
 
 namespace AdvanceTaskPart1.AssertHelpers
 {
-    public class LanguageAssertHelper: CommonDriver
+    public class LanguageAssertHelper : CommonDriver
     {
         private static IWebElement popupMsg => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement cancelButton => driver.FindElement(By.XPath("//input[@value='Cancel']"));
@@ -41,13 +33,12 @@ namespace AdvanceTaskPart1.AssertHelpers
             }
             else if (popupMsgBox == popupMsgadd)
             {
-                 test.Log(Status.Pass, "Test Passed Valid Education Data Entered");
+                test.Log(Status.Pass, "Test Passed Valid Language Data Entered");
             }
             else
             {
                 test.Log(Status.Fail, "Test Failed");
             }
-
         }
         public static void EditLanguageAssert(String language)
         {
@@ -64,13 +55,13 @@ namespace AdvanceTaskPart1.AssertHelpers
                 test.Log(Status.Info, "Entered Invalid data -> " + popupMsgBox);
                 cancelButton.Click();
             }
-            else if (popupMsgBox == popupMsgedit|| popupMsgBox==popupNoLang)
+            else if (popupMsgBox == popupMsgedit || popupMsgBox == popupNoLang)
             {
-                  test.Log(Status.Pass, "Test Passed Valid Education Data Updated");
+                test.Log(Status.Pass, "Test Passed Valid Language Data Updated");
             }
             else
             {
-                 test.Log(Status.Fail, "Test Failed");
+                test.Log(Status.Fail, "Test Failed");
             }
         }
         public static void DeleteLanguageAssert(String language)
@@ -88,9 +79,8 @@ namespace AdvanceTaskPart1.AssertHelpers
             }
             else
             {
-                  test.Log(Status.Fail, "Test Failed");
+                test.Log(Status.Fail, "Test Failed");
             }
         }
-
     }
 }

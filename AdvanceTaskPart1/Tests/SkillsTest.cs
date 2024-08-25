@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.Tests
 {
-    public class SkillsTest:CommonDriver
+    [TestFixture]
+    public class SkillsTest : CommonDriver
     {
         HomePageSteps homePageStepsObj;
         ProfileMenuTab profileMenuTabObj;
@@ -19,7 +20,7 @@ namespace AdvanceTaskPart1.Tests
         {
             homePageStepsObj = new HomePageSteps();
             profileMenuTabObj = new ProfileMenuTab();
-            skillStepsObj = new SkillSteps();   
+            skillStepsObj = new SkillSteps();
         }
         [Test, Order(1), Description("This test adds a new entry in skills feature")]
         public void TestAddSkills()
@@ -42,6 +43,5 @@ namespace AdvanceTaskPart1.Tests
             profileMenuTabObj.clickSkillsTab();
             skillStepsObj.DeleteSkillSteps();
         }
-
     }
 }

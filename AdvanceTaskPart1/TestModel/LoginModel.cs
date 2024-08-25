@@ -23,25 +23,17 @@ namespace AdvanceTaskPart1.TestModel
         {
             this.password = password;
         }
-
         public String getPassword()
         {
             return password;
         }
-
-
         public void setFirstName(String firstName)
         {
             this.firstName = firstName;
         }
-
-
         public String getUserName()
         {
             return firstName;
         }
-
-
-
     }
 }

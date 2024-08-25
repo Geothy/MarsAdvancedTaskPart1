@@ -11,21 +11,21 @@ using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.Tests
 {
-    public class LanguageTest:CommonDriver
+    [TestFixture]
+    public class LanguageTest : CommonDriver
     {
         HomePageSteps homePageStepsObj;
         ProfileMenuTab profileMenuTabObj;
         LanguageSteps languageStepsObj;
-
         public LanguageTest()
-        {           
+        {
             homePageStepsObj = new HomePageSteps();
             profileMenuTabObj = new ProfileMenuTab();
-            languageStepsObj = new LanguageSteps();     
+            languageStepsObj = new LanguageSteps();
         }
         [Test, Order(1), Description("This test adds a new entry in language feature")]
         public void TestAddLanguage()
-        {           
+        {
             homePageStepsObj.clickOnProfileTab();
             profileMenuTabObj.clickLangaugesTab();
             languageStepsObj.AddLanguageSteps();

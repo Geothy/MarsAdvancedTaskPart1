@@ -14,20 +14,17 @@ namespace AdvanceTaskPart1.Steps
 {
     public class LanguageSteps
     {
-         ProfileMenuTab profileMenuTabObj;
-         ProfileTabLanguage profileTabLanguageObj;
-        public LanguageSteps() 
+        ProfileMenuTab profileMenuTabObj;
+        ProfileTabLanguage profileTabLanguageObj;
+        public LanguageSteps()
         {
             profileMenuTabObj = new ProfileMenuTab();
             profileTabLanguageObj = new ProfileTabLanguage();
         }
         public void AddLanguageSteps()
         {
-
             string addLangFile = "AddLangData.json";
-            List<LanguageModel> AddLangData=JsonUtil.ReadJsonData<LanguageModel>(addLangFile);
-           
-            //var status = TestContext.CurrentContext.Result.Outcome.Status;
+            List<LanguageModel> AddLangData = JsonUtil.ReadJsonData<LanguageModel>(addLangFile);
             foreach (var item in AddLangData)
             {
                 string language = item.AddLanguage;
@@ -35,7 +32,6 @@ namespace AdvanceTaskPart1.Steps
                 profileTabLanguageObj.AddLanguage(language, langLevel);
                 LanguageAssertHelper.AddLanguageAssert(language);
             }
-          
         }
         public void EditLanguageSteps()
         {
@@ -49,7 +45,6 @@ namespace AdvanceTaskPart1.Steps
                 profileTabLanguageObj.EditLanguage(elanguage, elangLevel);
                 LanguageAssertHelper.EditLanguageAssert(elanguage);
             }
-          //  test.Log(Status.Pass, "Editing Education Test Passed");
         }
         public void DeleteLanguageSteps()
         {
@@ -63,8 +58,6 @@ namespace AdvanceTaskPart1.Steps
                 profileTabLanguageObj.DeleteLanguage(dlanguage, dlangLevel);
                 LanguageAssertHelper.DeleteLanguageAssert(dlanguage);
             }
-           // test.Log(Status.Pass, "Deleting Education Test Passed");
-
         }
     }
 }

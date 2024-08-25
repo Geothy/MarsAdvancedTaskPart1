@@ -12,11 +12,10 @@ namespace AdvanceTaskPart1.Steps
 {
     public class LoginSteps
     {
-        LoginPage loginPageObj;       
-        
+        LoginPage loginPageObj;
         public LoginSteps()
         {
-           loginPageObj = new LoginPage();
+            loginPageObj = new LoginPage();
         }
         public void doLogin()
         {
@@ -24,7 +23,7 @@ namespace AdvanceTaskPart1.Steps
             loginModel.setEmail("geothy@gmail.com");
             loginModel.setPassword("7geothy*");
             loginPageObj.clickSignInButton();
-            loginPageObj.LoginActions(loginModel);        
+            loginPageObj.LoginActions(loginModel);
         }
     }
 }

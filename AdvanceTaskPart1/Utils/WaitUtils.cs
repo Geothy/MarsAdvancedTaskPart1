@@ -16,21 +16,18 @@ namespace AdvanceTaskPart1.Utils
             By by = GetBy(locatorType, locatorValue);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementToBeClickable(by));
-
         }
-
         public static void WaitToBeVisible(IWebDriver driver, string locatorType, string locatorValue, int seconds)
         {
             By by = GetBy(locatorType, locatorValue);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
-        public static void WaitTillAlertIsPresent(IWebDriver driver, string locatorType, string locatorValue, int seconds)
+        public static void WaitTillElementExist(IWebDriver driver, string locatorType, string locatorValue, int seconds)
         {
             By by = GetBy(locatorType, locatorValue);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
-            wait.Until(ExpectedConditions.AlertIsPresent());
-
+            wait.Until(ExpectedConditions.ElementExists(by));
         }
         private static By GetBy(string locatorType, string locatorValue)
         {

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarsAdvancedTaskPart1.Tests
+namespace AdvanceTaskPart1.TestModel
 {
-    internal class SkillTest
+    public class SearchSkillCategoryModel
     {
+        public string Category { get; set; }
     }
 }

@@ -11,19 +11,27 @@ namespace AdvanceTaskPart1.Steps
     public class HomePageSteps
     {
         HomePage homePageObj;
-       // ProfileMenuTab profileMenuTabObj;
-
-        public HomePageSteps() 
-        { 
+        public HomePageSteps()
+        {
             homePageObj = new HomePage();
-          
         }
         public void clickOnProfileTab()
         {
             homePageObj.clickProfileTab();
-        }     
+        }
+        public void clickOnShareSkill()
+        {
+            homePageObj.clickShareSkill();
+        }
+        public void clickOnSearchSkill()
+        {
+            homePageObj.clickSearchSkill();
+        }
+        public void clickOnNotificationPanel()
+        {
 
-
+            homePageObj.clickNotificationPanel();
+        }
         public void VerifyLogin()
         {
             homePageObj.getUserName();

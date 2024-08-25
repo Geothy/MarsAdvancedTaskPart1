@@ -12,7 +12,7 @@ namespace AdvanceTaskPart1.Pages
     public class LoginPage : CommonDriver
     {
         private static IWebElement usernameTextbox;
-        private static  IWebElement passwordTextbox;
+        private static IWebElement passwordTextbox;
         private static IWebElement logInButton;
         private static IWebElement signInButton;
 
@@ -20,7 +20,6 @@ namespace AdvanceTaskPart1.Pages
         {
             try
             {
-                Thread.Sleep(1000);
                 signInButton = driver.FindElement(By.XPath("//*[text()='Sign In']"));
             }
             catch (Exception ex)
@@ -31,9 +30,7 @@ namespace AdvanceTaskPart1.Pages
         public void clickSignInButton()
         {
             renderSignInComponents();
-            Thread.Sleep(2000);
             signInButton.Click();
-            Thread.Sleep(1000);
         }
         public void renderLoginComponents()
         {
@@ -43,10 +40,10 @@ namespace AdvanceTaskPart1.Pages
                 passwordTextbox = driver.FindElement(By.XPath("//input[@name='password']"));
                 logInButton = driver.FindElement(By.XPath("//button[text()='Login']"));
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            
+
             }
         }
         public void LoginActions(LoginModel loginModel)
@@ -55,7 +52,7 @@ namespace AdvanceTaskPart1.Pages
             usernameTextbox.SendKeys(loginModel.getEmail());
             passwordTextbox.SendKeys(loginModel.getPassword());
             logInButton.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
         }
     }
 }

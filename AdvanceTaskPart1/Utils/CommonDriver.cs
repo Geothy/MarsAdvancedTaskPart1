@@ -16,18 +16,19 @@ namespace AdvanceTaskPart1.Utils
     public class CommonDriver
     {
         public static IWebDriver driver;
-         public static ExtentReports extent;
-         public static ExtentTest test;
-       public static LoginSteps loginStepsObj;
+        public static ExtentReports extent;
+        public static ExtentTest test;
+        public static LoginSteps loginStepsObj;
         public static HomePageSteps homePageStepsObj;
         public static ProfileMenuTab profileTabsObj;
-
 
         [OneTimeSetUp]
         public void ExtentReportSetup()
         {
             try
             {
+                driver = new ChromeDriver();
+                driver.Manage().Window.Maximize();
                 var htmlReporter = new ExtentHtmlReporter("C:\\GitProjects\\MarsAdvancedTaskPart1\\AdvanceTaskPart1\\Reports\\");
                 extent = new ExtentReports();
                 extent.AttachReporter(htmlReporter);
@@ -41,8 +42,7 @@ namespace AdvanceTaskPart1.Utils
         [SetUp]
         public void BrowserSetup()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+
             string baseURL = "http://localhost:5000/";
             driver.Navigate().GoToUrl(baseURL);
             loginStepsObj = new LoginSteps();
@@ -55,8 +55,7 @@ namespace AdvanceTaskPart1.Utils
         }
         private static void CleanUp()
         {
-            profileTabsObj =new ProfileMenuTab();            
-           
+            profileTabsObj = new ProfileMenuTab();
             profileTabsObj.ClearSkillData();
             profileTabsObj.ClearLangData();
         }

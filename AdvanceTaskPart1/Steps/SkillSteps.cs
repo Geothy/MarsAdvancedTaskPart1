@@ -14,18 +14,15 @@ namespace AdvanceTaskPart1.Steps
     {
         ProfileMenuTab profileMenuTabObj;
         ProfileTabSkills profileTabSkillsObj;
-        public SkillSteps() 
+        public SkillSteps()
         {
             profileMenuTabObj = new ProfileMenuTab();
-            profileTabSkillsObj = new ProfileTabSkills();   
+            profileTabSkillsObj = new ProfileTabSkills();
         }
         public void AddSkillSteps()
         {
-
             string addSkillFile = "AddSkillData.json";
             List<SkillModel> AddSkillData = JsonUtil.ReadJsonData<SkillModel>(addSkillFile);
-
-            //var status = TestContext.CurrentContext.Result.Outcome.Status;
             foreach (var item in AddSkillData)
             {
                 string skill = item.AddSkill;
@@ -46,7 +43,6 @@ namespace AdvanceTaskPart1.Steps
                 profileTabSkillsObj.EditSkill(eskill, eskillLevel);
                 SkillsAssertHelper.EditSkillsAssert(eskill);
             }
-            
         }
         public void DeleteSkillSteps()
         {
@@ -60,8 +56,6 @@ namespace AdvanceTaskPart1.Steps
                 profileTabSkillsObj.DeleteSkill(dskill, dskillLevel);
                 SkillsAssertHelper.DeleteSkillsAssert(dskill);
             }
-            // test.Log(Status.Pass, "Deleting Education Test Passed");
-
         }
     }
 }

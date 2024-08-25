@@ -1,14 +1,9 @@
 ﻿using AdvanceTaskPart1.Utils;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.Pages.Components.ProfilePage
 {
-    public class ProfileTabSkills:CommonDriver
+    public class ProfileTabSkills : CommonDriver
     {
         private static IWebElement addNewSkillButton;
         private static IWebElement skillsTextbox;
@@ -42,14 +37,14 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
             }
         }
         public void AddSkills(string skills, string skillLevel)
-        { 
+        {
             renderSkillButton();
             addNewSkillButton.Click();
             Thread.Sleep(2000);
             renderAddSkillComponents();
-            skillsTextbox.SendKeys(skills);          
+            skillsTextbox.SendKeys(skills);
             skillLevelOption.Click();
-            skillLevelOption.SendKeys(skillLevel);           
+            skillLevelOption.SendKeys(skillLevel);
             addSkillButton.Click();
             Thread.Sleep(2000);
         }
@@ -68,7 +63,6 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
         {
             try
             {
-
                 editSkillTextbox = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
                 editSkillLevel = driver.FindElement(By.Name("level"));
                 updateSkillButton = driver.FindElement(By.XPath("//input[@value='Update']"));
@@ -86,16 +80,16 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
             Thread.Sleep(2000);
             renderEditSkillComponents();
             editSkillTextbox.Clear();
-            editSkillTextbox.SendKeys(skills);           
+            editSkillTextbox.SendKeys(skills);
             editSkillLevel.Click();
-            editSkillLevel.SendKeys(skillLevel);           
+            editSkillLevel.SendKeys(skillLevel);
             updateSkillButton.Click();
         }
         public void renderDeleteIconComponent()
         {
             try
             {
-                deleteSkillButton = driver.FindElement(By.CssSelector("i[class='remove icon']"));
+                deleteSkillButton = driver.FindElement(By.XPath("//i[@class='remove icon']"));
             }
             catch (Exception ex)
             {

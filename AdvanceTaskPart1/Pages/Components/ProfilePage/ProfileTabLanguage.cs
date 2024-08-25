@@ -1,10 +1,5 @@
 ﻿using AdvanceTaskPart1.Utils;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.Pages.Components.ProfilePage
 {
@@ -61,7 +56,6 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
                 Console.WriteLine(ex);
             }
         }
-
         public void renderEditLangComponents()
         {
             try
@@ -93,7 +87,7 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
         {
             try
             {
-                deleteLangButton = driver.FindElement(By.CssSelector("i[class='remove icon']"));
+                deleteLangButton = driver.FindElement(By.XPath("//i[@class='remove icon']"));
             }
             catch (Exception ex)
             {
@@ -102,7 +96,6 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
         }
         public void DeleteLanguage(string language, string level)
         {
-            Thread.Sleep(1000);
             renderDeleteIconComponent();
             deleteLangButton.Click();
         }

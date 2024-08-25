@@ -2,18 +2,11 @@
 using AventStack.ExtentReports;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using RazorEngine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.AssertHelpers
 {
-    public class SkillsAssertHelper:CommonDriver
+    public class SkillsAssertHelper : CommonDriver
     {
-
         private static IWebElement popupMsg => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement cancelButton => driver.FindElement(By.XPath("//input[@value='Cancel']"));
         static string popupMsgInv = "Please enter skill and experience level";
@@ -39,7 +32,7 @@ namespace AdvanceTaskPart1.AssertHelpers
                 test.Log(Status.Info, "Entered Invalid data -> " + popupMsgBox);
                 cancelButton.Click();
             }
-            else if (popupMsgBox == popupMsgadd|| popupMsgBox==popupNoSkill)
+            else if (popupMsgBox == popupMsgadd || popupMsgBox == popupNoSkill)
             {
                 test.Log(Status.Pass, "Adding Test Passed Valid Skills Data Entered");
             }
@@ -47,7 +40,6 @@ namespace AdvanceTaskPart1.AssertHelpers
             {
                 test.Log(Status.Fail, "Test Failed");
             }
-
         }
         public static void EditSkillsAssert(String skill)
         {
@@ -82,7 +74,7 @@ namespace AdvanceTaskPart1.AssertHelpers
             string popUpMsgdel = skill + " has been deleted";
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             Assert.That(popupMsgBox, Is.EqualTo(popUpMsgdel).Or.EqualTo(popupMsgDel));
-            if ((popupMsgBox == popUpMsgdel)||(popupMsgBox==popupMsgDel))
+            if ((popupMsgBox == popUpMsgdel) || (popupMsgBox == popupMsgDel))
             {
                 test.Log(Status.Pass, "Deleting Test Passed Deletion Successfull");
             }
@@ -90,7 +82,6 @@ namespace AdvanceTaskPart1.AssertHelpers
             {
                 test.Log(Status.Fail, "Test Failed");
             }
-
         }
     }
 }

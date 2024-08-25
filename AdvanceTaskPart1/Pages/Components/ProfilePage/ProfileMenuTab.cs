@@ -1,10 +1,5 @@
 ﻿using AdvanceTaskPart1.Utils;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvanceTaskPart1.Pages.Components.ProfilePage
 {
@@ -27,10 +22,14 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
         }
         public void renderDeleteIcon()
         {
-
-            try 
+            try
             {
-                delIcon = driver.FindElements(By.CssSelector("i[class='remove icon']"));
+                Thread.Sleep(2000);
+                delIcon = driver.FindElements(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine("Nothing to delete");
             }
             catch (Exception ex)
             {
@@ -41,13 +40,12 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
         {
             renderProfileTabComponents();
             languagesTab.Click();
-            Thread.Sleep(1000);
         }
         public void clickSkillsTab()
         {
             renderProfileTabComponents();
             skillsTab.Click();
-            Thread.Sleep(1000);
+            //  Thread.Sleep(1000);
         }
         public void ClearLangData()
         {
@@ -57,7 +55,8 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
                 renderDeleteIcon();
                 foreach (var button in delIcon)
                 {
-                    WaitUtils.WaitToBeClickable(driver, "cssselector", "i[class='remove icon']", 20);
+                    Thread.Sleep(1000);
+                    WaitUtils.WaitToBeClickable(driver, "xpath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i", 20);
                     button.Click();
                 }
             }
@@ -83,10 +82,11 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
             try
             {
                 clickSkillsTab();
+                Thread.Sleep(2000);
                 renderDeleteIcon();
                 foreach (var button in delIcon)
                 {
-                    WaitUtils.WaitToBeClickable(driver, "cssselector", "i[class='remove icon']", 20);
+                    Thread.Sleep(1000);
                     button.Click();
                 }
             }
@@ -96,8 +96,8 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
                 renderDeleteIcon();
                 foreach (var button1 in delIcon)
                 {
-                    Thread.Sleep(100);
-                    WaitUtils.WaitToBeClickable(driver, "cssselector", "i[class='remove icon']", 20);
+                    Thread.Sleep(1000);
+                    // WaitUtils.WaitToBeClickable(driver, "cssselector", "i[class='remove icon']", 20);
                     button1.Click();
                 }
             }
@@ -105,8 +105,6 @@ namespace AdvanceTaskPart1.Pages.Components.ProfilePage
             {
                 Console.WriteLine("Nothing to delete");
             }
-
         }
-       
     }
 }
